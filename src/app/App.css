@@ -1,0 +1,48 @@
+body {
+  text-align: center;
+  background-color: #252a2b;
+  color: #2b1211;
+}
+
+#cardSection {
+  position: relative;
+  top: 40px;
+}
+
+#card {
+  top: 20px;
+  width: 40%;
+  border: 3px solid #441b1a;
+  background-color: #266163 ;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  margin-top: 12px;
+  margin-left: 30%;
+}
+
+#card img, #card video {
+  width: 80%;
+  height: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+#searchBar {
+  position: fixed;
+  width: 40%;
+  padding: 10px;
+  left: 30%;
+  top: 0;
+  z-index: 1;
+  background-color: #252a2ba2;
+}
+
+#loadbutton {
+position: fixed;
+}
