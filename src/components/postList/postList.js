@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useInfiniteScroll } from "../../features/infiniteScroll";
 import { selectSearch } from "../search/searchSlice";
-import { PostListSection } from "./postListSection";
 import { PostCard } from "../postCard/postCard";
 import { isLoadingPosts, loadPostsforCards, selectPosts } from "./postListSlice";
 
@@ -15,7 +14,7 @@ export const PostList = () => {
         id: 1,
         author: 'your mom',
         title: 'Nothing Found',
-        url: '../../features/sad-face.gif'
+        url: './sad-face.gif'
     }])
 
 
@@ -34,29 +33,11 @@ export const PostList = () => {
         setIsFetching(false);
         console.log('fetching more')
     }
-    const [isFetching, setIsFetching] = useState(false);
+    const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems);
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-      }, []);
-    
-      useEffect(() => {
-        if (!isFetching) return;
-        fetchMoreListItems();
-      }, [isFetching]);
-    
-      function handleScroll() {
-        if ((window.innerHeight + window.scrollY) >= document.documentElement.offsetHeight && !isFetching){
-            console.log('fetching')
-            setIsFetching(true);
-        }
-      }
 
     if(postsAreLoading){
-        // console.log(query)
         return <h2 id="cardSection" >Loading Content</h2>;
-
     }
     
     if(posts) {   
@@ -74,6 +55,5 @@ export const PostList = () => {
             {isFetching && <p>Fetching more results...</p>}
         </div>
         )
-
     }
 }

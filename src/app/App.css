@@ -1,7 +1,7 @@
 body {
   text-align: center;
-  background-color: #252a2b;
-  color: #2b1211;
+  background-color: #1d1d1d;
+  color: #8d8d8d;
 }
 
 #cardSection {
@@ -12,8 +12,8 @@ body {
 #card {
   top: 20px;
   width: 40%;
-  border: 3px solid #441b1a;
-  background-color: #266163 ;
+  border: 3px solid #8d8d8d;
+  background-color: #1d1d1d ;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -40,9 +40,13 @@ body {
   left: 30%;
   top: 0;
   z-index: 1;
-  background-color: #252a2ba2;
+  background-color: #1d1d1d;
 }
 
 #loadbutton {
 position: fixed;
+}
+
+a {
+  color: #ffffff;
 }

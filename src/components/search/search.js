@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectSearch, setQuery } from "./searchSlice";
+import { useDispatch } from "react-redux";
+import { setQuery } from "./searchSlice";
 
 
 export const Search = () => {
@@ -9,8 +9,6 @@ export const Search = () => {
 
     const handleSubmit =(e) =>{
         e.preventDefault();
-        // let term = e.value
-        // console.log(term);
         dispatch(setQuery(search));
         setSearch('');
     }

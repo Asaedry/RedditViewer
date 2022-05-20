@@ -1,5 +1,4 @@
 import { redditAPI } from "../redditapi";
-// import { urlCheckConvert } from "./gifConvert";
 
 export const urlSet = (content) => {
     if(content.data.url.endsWith('jpg') 
@@ -50,7 +49,16 @@ export const cardSetup = async (query) => {
 
     const dataFiltered = jsonDataArray.filter(object => urlCheck(object));
     // console.log(dataFiltered);
-    return dataFiltered;
+    if(dataFiltered.length > 0){
+        return dataFiltered;
+    } else {
+        return [[{
+                    id: 1,
+                    author: 'your mom',
+                    title: 'Nothing Found',
+                    url: './sad-face.gif'
+                }]]
+    }
 
     // try{
     //     let postsTenArray = []

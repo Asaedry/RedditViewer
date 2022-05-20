@@ -9,7 +9,7 @@ export const PostCard = (props) => {
             <h3>{props.title}</h3>
             {props.imgsrc.endsWith('jpg') || props.imgsrc.endsWith('gif') || props.imgsrc.endsWith('jpeg') || props.imgsrc.endsWith('png') ? 
                 <img src={props.imgsrc} /> : 
-                <video poster={`${props.imgsrc}`} autoPlay muted="muted" loop="loop" >
+                <video poster={`${props.imgsrc}`} autoPlay controls muted="muted" >
                     <source src={`${props.imgsrc}`} type="video/mp4" />
                 </video>
             }
