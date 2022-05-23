@@ -22,7 +22,10 @@ export const Search = () => {
                     value={search}
                     onChange={(e) => setSearch(e.currentTarget.value)} 
                 />
-                <input type="submit" value="S"/>
+                {/* <input type="submit" value={<FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />}/> */}
+                <button type="submit" >
+                    <i className="fa-solid fa-magnifying-glass"></i>    
+                </button>
             </form>
         </div>
     )

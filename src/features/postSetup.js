@@ -1,19 +1,23 @@
 import { redditAPI } from "../redditapi";
 
 export const urlSet = (content) => {
-    if(content.data.url.endsWith('jpg') 
-        || content.data.url.endsWith('gif') 
-        || content.data.url.endsWith('jpeg')
-        ||content.data.url.endsWith('png')){
-        return content.data.url;
-    } else if (content.data.preview) {
-        if(content.data.preview.reddit_video_preview){
-            return content.data.preview.reddit_video_preview.fallback_url;
+    if(content.data.url){
+        if(content.data.url.endsWith('jpg') 
+            || content.data.url.endsWith('gif') 
+            || content.data.url.endsWith('jpeg')
+            ||content.data.url.endsWith('png')){
+            return content.data.url;
+        } else if (content.data.preview) {
+            if(content.data.preview.reddit_video_preview){
+                return content.data.preview.reddit_video_preview.fallback_url;
+            } else {
+                return "undefined"
+            }
         } else {
             return "undefined"
         }
     } else {
-        return "undefined"
+        return 'undefined'
     }
 }
 
@@ -33,9 +37,37 @@ export const urlCheck = (content) => {
 export const cardSetup = async (query) => {
     const data = await redditAPI(query);
     const json = await data.json();
+    // console.log(json);
+    if(json.error){
+        return [{
+            id: 1,
+            author: 'your mom',
+            title: 'Nothing Found',
+            url: './sad-face.gif'
+        }]
+    }
+
+    let jsonSimp = {data: {children: []}};
+    if(json.length > 1){
+        try {
+            let childArray = []
+            json.map(group => {
+                group.data.children.map(child => {
+                    childArray.push(child);
+                })
+            })
+            jsonSimp.data.children = childArray;
+        } catch(error) {
+            console.log(error)
+        }
+        
+    } else {
+        jsonSimp = json
+    }
+    // console.log(jsonSimp);
     let jsonDataArray;
     try{
-        jsonDataArray = json.data.children.map(content => 
+        jsonDataArray = jsonSimp.data.children.map(content => 
             ({
             id: content.data.id,
             author: content.data.author,
@@ -49,53 +81,16 @@ export const cardSetup = async (query) => {
 
     const dataFiltered = jsonDataArray.filter(object => urlCheck(object));
     // console.log(dataFiltered);
+
     if(dataFiltered.length > 0){
         return dataFiltered;
     } else {
-        return [[{
+        // console.log('nothing found')
+        return [{
                     id: 1,
                     author: 'your mom',
                     title: 'Nothing Found',
                     url: './sad-face.gif'
-                }]]
+                }]
     }
-
-    // try{
-    //     let postsTenArray = []
-    //     let p = 0
-    //     while(p < dataFiltered.length / 10){
-    //         let num = p * 10;
-    //         let tenCardArray = []
-    //         for(let i = num; i < num + 10; i++){
-    //             try{
-    //                 if(urlCheck(dataFiltered[i])){
-    //                     tenCardArray.push(dataFiltered[i]);
-    //                 }
-    //             } catch(error) {
-    //                 console.log(error + i)
-    //                 break;
-    //             }
-    //             // console.log(i);
-    //             // console.log(tenCardArray)
-    //         }
-    //         if(tenCardArray.length != 0){
-    //             postsTenArray.push(tenCardArray);
-    //         }
-    //         p++
-    //     }
-    //     // console.log(postsTenArray);
-    //     if(postsTenArray.length != 0){
-    //         return postsTenArray;
-    //     } else {
-    //         return [[{
-    //             id: 1,
-    //             author: 'your mom',
-    //             title: 'Nothing Found',
-    //             url: '../../features/sad-face.gif'
-    //         }]]
-    //     }
-    // }catch(error){
-    //     console.log(error)
-    // }
-    
 }

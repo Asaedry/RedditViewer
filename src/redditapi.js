@@ -8,6 +8,18 @@ export const redditAPI = async (query) => {
         return response;   
     } catch (error) {
         console.log(error);
+        return {
+            data: {
+                children: {
+                    data: {
+                        id: null,
+                        author: null,
+                        title: null, 
+                        url: null
+                    }
+                }
+            }
+        }
     }
 }
 

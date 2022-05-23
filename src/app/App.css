@@ -40,7 +40,7 @@ body {
   left: 30%;
   top: 0;
   z-index: 1;
-  background-color: #1d1d1d;
+  background-color: #1c1c1c94;
 }
 
 #loadbutton {
@@ -49,4 +49,37 @@ position: fixed;
 
 a {
   color: #ffffff;
+}
+
+@media screen and (max-width: 1440px ) {
+  #card {
+    width: 60%;
+    margin-left: 20%;
+  }
+  #searchBar{
+    width: 60%;
+    left: 20%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #card {
+    width: 80%;
+    margin-left: 10%;
+  }
+  #searchBar{
+    width: 80%;
+    left: 10%;
+  }
+}
+
+@media screen and (max-width: 425px){
+  #card {
+    width: 90%;
+    margin-left: 5%;
+  }
+  #searchBar{
+    width: 90%;
+    left: 5%;
+  }
 }
