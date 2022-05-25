@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { cardSetup, urlSet } from "../../features/postSetup";
-import { redditAPI } from "../../redditapi";
+import { cardSetup } from "../../features/postSetup";
 
 
 export const loadPostsforCards = createAsyncThunk(

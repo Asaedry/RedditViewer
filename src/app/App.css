@@ -29,8 +29,17 @@ body {
   height: auto;
 }
 
-.hidden {
-  display: none;
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.subname {
+  margin-left: 20px;
 }
 
 #searchBar {
@@ -41,10 +50,6 @@ body {
   top: 0;
   z-index: 1;
   background-color: #1c1c1c94;
-}
-
-#loadbutton {
-position: fixed;
 }
 
 a {

@@ -2,15 +2,21 @@ import './App.css';
 import React from 'react'
 import { PostList } from '../components/postList/postList';
 import { Search } from '../components/search/search';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
 
-  // redditAPI();
-
   return (
     <div className="App">
-      <Search />
-      <PostList />
+      <Router>
+        <Route path='/'>
+          <Search />
+        </Route>
+        <Route path='/:url' >
+          <PostList /> 
+        </Route>
+      </Router>
+      
     </div>
   );
 }

@@ -3,10 +3,14 @@ import { redditAPI } from "../redditapi";
 export const urlSet = (content) => {
     if(content.data.url){
         if(content.data.url.endsWith('jpg') 
-            || content.data.url.endsWith('gif') 
-            || content.data.url.endsWith('jpeg')
-            ||content.data.url.endsWith('png')){
-            return content.data.url;
+        || content.data.url.endsWith('gif') 
+        || content.data.url.endsWith('jpeg')
+        ||content.data.url.endsWith('png')){
+            if(content.data.url.startsWith('https://i.redgifs.com/i')){
+                return 'undefined'
+            } else {    
+                return content.data.url;
+            }
         } else if (content.data.preview) {
             if(content.data.preview.reddit_video_preview){
                 return content.data.preview.reddit_video_preview.fallback_url;
@@ -43,6 +47,7 @@ export const cardSetup = async (query) => {
             id: 1,
             author: 'your mom',
             title: 'Nothing Found',
+            sub: ')',
             url: './sad-face.gif'
         }]
     }
@@ -72,6 +77,7 @@ export const cardSetup = async (query) => {
             id: content.data.id,
             author: content.data.author,
             title: content.data.title,
+            sub: content.data.subreddit_name_prefixed,
             url: urlSet(content)
             })
         )
@@ -90,6 +96,7 @@ export const cardSetup = async (query) => {
                     id: 1,
                     author: 'your mom',
                     title: 'Nothing Found',
+                    sub: ')',
                     url: './sad-face.gif'
                 }]
     }

@@ -31,7 +31,6 @@ export const PostList = () => {
     const fetchMoreListItems = () => {
         setPostList(prevState => ([...prevState, ...posts.slice(prevState.length, prevState.length + 10)]));
         setIsFetching(false);
-        console.log('fetching more')
     }
     const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems);
 
@@ -48,6 +47,7 @@ export const PostList = () => {
                     key={post.id}
                     id={post.id}
                     title={post.title}
+                    sub={post.sub}
                     imgsrc={post.url}
                     author={post.author}
                 />
