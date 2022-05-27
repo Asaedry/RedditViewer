@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setQuery } from "./searchSlice";
 
 
-export const Search = () => {
-    const dispatch = useDispatch();
+export const Search = (props) => {
+
     const [search, setSearch] = useState('')
 
     const handleSubmit =(e) =>{
         e.preventDefault();
-        dispatch(setQuery(search));
+        props.nav(search);
         setSearch('');
     }
 
@@ -17,12 +15,12 @@ export const Search = () => {
         <div id="searchBar">
             <form onSubmit={handleSubmit} id="search" name="search">
                 <input 
-                    id="search_bar" 
+                    className="search_bar" 
                     name="search" 
                     value={search}
-                    onChange={(e) => setSearch(e.currentTarget.value)} 
+                    onChange={(e) => setSearch(e.currentTarget.value)}
                 />
-                <button type="submit" >
+                <button type="submit"  className='button' >
                     <i className="fa-solid fa-magnifying-glass"></i>    
                 </button>
             </form>

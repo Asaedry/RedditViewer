@@ -41,7 +41,6 @@ export const urlCheck = (content) => {
 export const cardSetup = async (query) => {
     const data = await redditAPI(query);
     const json = await data.json();
-    // console.log(json);
     if(json.error){
         return [{
             id: 1,
@@ -59,6 +58,7 @@ export const cardSetup = async (query) => {
             json.map(group => {
                 group.data.children.map(child => {
                     childArray.push(child);
+                    return;
                 })
             })
             jsonSimp.data.children = childArray;
@@ -69,7 +69,7 @@ export const cardSetup = async (query) => {
     } else {
         jsonSimp = json
     }
-    // console.log(jsonSimp);
+
     let jsonDataArray;
     try{
         jsonDataArray = jsonSimp.data.children.map(content => 
@@ -86,12 +86,10 @@ export const cardSetup = async (query) => {
     }
 
     const dataFiltered = jsonDataArray.filter(object => urlCheck(object));
-    // console.log(dataFiltered);
 
     if(dataFiltered.length > 0){
         return dataFiltered;
     } else {
-        // console.log('nothing found')
         return [{
                     id: 1,
                     author: 'your mom',

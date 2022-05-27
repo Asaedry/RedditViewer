@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useInfiniteScroll } from "../../features/infiniteScroll";
-import { selectSearch } from "../search/searchSlice";
+import { selectSearch } from "../navBar/search/searchSlice";
 import { PostCard } from "../postCard/postCard";
 import { isLoadingPosts, loadPostsforCards, selectPosts } from "./postListSlice";
 

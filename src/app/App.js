@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react'
 import { PostList } from '../components/postList/postList';
-import { Search } from '../components/search/search';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { NavBar } from '../components/navBar/navBar';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
 
@@ -10,11 +10,11 @@ function App() {
     <div className="App">
       <Router>
         <Route path='/'>
-          <Search />
+          <NavBar />
         </Route>
-        <Route path='/:url' >
+        <Route path='/' >
           <PostList /> 
-        </Route>
+        </Route>   
       </Router>
       
     </div>
