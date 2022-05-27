@@ -14,7 +14,7 @@ export const PostCard = (props) => {
                 </video>
             }
             <div className="info">
-                <h5 className="authorname" >Author: <a href={`www.reddit.com/user/${props.author}`} target="_blank" >{props.author}</a></h5>
+                <h5 className="authorname" >Author: <a href={`https://www.reddit.com/user/${props.author}`} target="_blank" >{props.author}</a></h5>
                 <h4 className="subname">{props.sub}</h4>
             </div>
             

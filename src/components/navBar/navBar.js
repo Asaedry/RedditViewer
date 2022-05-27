@@ -13,13 +13,13 @@ export const NavBar = () => {
     const location = useLocation();
 
     useEffect(() => {
-        dispatch(setQuery(location.pathname));
+        dispatch(setQuery(location.pathname.slice(13)));
         console.log(location);
     }, [location])
 
     const handleNav = (nav) => {
         history.push('');
-        history.replace(nav);
+        history.replace('/RedditViewer' + nav);
     }
 
 

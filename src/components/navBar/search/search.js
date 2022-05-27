@@ -7,7 +7,7 @@ export const Search = (props) => {
 
     const handleSubmit =(e) =>{
         e.preventDefault();
-        props.nav(search);
+        props.nav('/' + search.toLowerCase());
         setSearch('');
     }
 

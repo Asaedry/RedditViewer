@@ -1,22 +1,22 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 
 export const NavSettings = (props) => {
 
-    const history = useHistory();
+    const location = useLocation();
 
     const handleClick = (e) => {
-        const location = history.location.pathname
+        const fixedLocation = location.pathname.slice(13);
         const target = e.target.value
-        if(location.endsWith('/new') || location.endsWith('/top') || location.endsWith('/hot')){
-            let resetLoc = location.slice(0, -4);
+        if(fixedLocation.endsWith('/new') || fixedLocation.endsWith('/top') || fixedLocation.endsWith('/hot')){
+            let resetLoc = fixedLocation.slice(0, -4);
             props.nav(resetLoc + `/${target}`)
-        } else if (location.endsWith('/')){
+        } else if (fixedLocation.endsWith('/')){
             props.nav(`/${target}`)
         } else {
-            props.nav(location + `/${target}`)   
+            props.nav(fixedLocation + `/${target}`)   
         }
     }
 
