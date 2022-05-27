@@ -29,7 +29,7 @@ body {
 }
 
 #card img, #card video {
-  width: 80%;
+  width: 95%;
   height: auto;
 }
 
@@ -95,9 +95,11 @@ a {
 
 @media screen and (max-width: 425px){
   #card {
-    width: 100%;
+    width: 95%;
+    margin-left: 2.5%;
   }
   #navBar{
-    width: 100%;
+    width: 95%;
+    left: 2.5%;
   }
 }
