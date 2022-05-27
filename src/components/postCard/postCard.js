@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 export const PostCard = (props) => {
@@ -14,8 +15,8 @@ export const PostCard = (props) => {
                 </video>
             }
             <div className="info">
-                <h5 className="authorname" >Author: <a href={`https://www.reddit.com/user/${props.author}`} target="_blank" >{props.author}</a></h5>
-                <h4 className="subname">{props.sub}</h4>
+                <h5 className="authorname" >Author: <Link to={`/RedditViewer/user/${props.author}`}> {props.author} </Link> </h5>
+                <h4 className="subname"> <Link to={`/RedditViewer/${props.sub}`}>{props.sub}</Link> </h4>
             </div>
             
         </div>

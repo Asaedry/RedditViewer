@@ -7,7 +7,12 @@ export const Search = (props) => {
 
     const handleSubmit =(e) =>{
         e.preventDefault();
-        props.nav('/r/' + search.toLowerCase());
+        const lower = search.toLowerCase();
+        if(lower.startsWith('r/') || lower.startsWith('user/') || lower === ('')){
+            props.nav("/" + lower);
+        } else {
+            props.nav('/r/' + search.toLowerCase());
+        }
         setSearch('');
     }
 

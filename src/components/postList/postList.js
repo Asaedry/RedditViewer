@@ -14,7 +14,8 @@ export const PostList = () => {
         id: 1,
         author: 'your mom',
         title: 'Nothing Found',
-        url: './sad-face.gif'
+        sub: '):',
+        url: 'https://Asaedry.github.io/RedditViewer/sad-face.gif'
     }])
 
 
