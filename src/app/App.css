@@ -95,11 +95,9 @@ a {
 
 @media screen and (max-width: 425px){
   #card {
-    width: 90%;
-    margin-left: 5%;
+    width: 100%;
   }
   #navBar{
-    width: 90%;
-    left: 5%;
+    width: 100%;
   }
 }
