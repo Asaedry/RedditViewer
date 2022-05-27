@@ -10,6 +10,9 @@ Displays pictures and videos from Reddit
 
 How To Use
 -
-use the new, top, and hot buttons to see whats on the front page of reddit
 
-search using the r/ Reddit convention 
+Opens to the front page of Reddit and a blank search will take you back there.
+
+Search specific subreddits by name to view, exclude r/ 
+
+Use the new, top, and hot buttons from the main page or for specific subreddits

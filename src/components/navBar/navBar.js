@@ -14,7 +14,6 @@ export const NavBar = () => {
 
     useEffect(() => {
         dispatch(setQuery(location.pathname.slice(13)));
-        console.log(location);
     }, [location])
 
     const handleNav = (nav) => {
