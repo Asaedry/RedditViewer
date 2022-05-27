@@ -1,7 +1,7 @@
 Reddit Viewer Web App
 -
 
-https://github.com/Asaedry/RedditViewer
+https://Asaedry.github.io/RedditViewer
 
 
 Displays pictures and videos from Reddit 
