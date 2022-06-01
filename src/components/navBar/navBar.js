@@ -14,16 +14,16 @@ export const NavBar = () => {
 
     useEffect(() => {
         history.push('');
-        history.replace('/RedditViewer');
+        history.replace('/RedditViewer/#' + location.hash.slice(1));
     }, [])
 
     useEffect(() => {
-        dispatch(setQuery(location.pathname.slice(13)));
-    }, [location])
+        dispatch(setQuery(location.hash.slice(1)));
+    }, [dispatch, location])
 
     const handleNav = (nav) => {
         history.push('');
-        history.replace('/RedditViewer' + nav);
+        history.replace('/RedditViewer/#' + nav);
     }
 
 

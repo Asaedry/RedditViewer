@@ -8,7 +8,7 @@ export const NavSettings = (props) => {
     const location = useLocation();
 
     const handleClick = (e) => {
-        const fixedLocation = location.pathname.slice(13);
+        const fixedLocation = location.hash.slice(1);
         const target = e.target.value
         if(fixedLocation.endsWith('/new') || fixedLocation.endsWith('/top') || fixedLocation.endsWith('/hot')){
             let resetLoc = fixedLocation.slice(0, -4);

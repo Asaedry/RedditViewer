@@ -27,7 +27,7 @@ export const PostList = () => {
 
     useEffect(() => {
         dispatch(loadPostsforCards(query));
-    }, [dispatch, query])
+    }, [query])
 
     const fetchMoreListItems = () => {
         setPostList(prevState => ([...prevState, ...posts.slice(prevState.length, prevState.length + 10)]));
