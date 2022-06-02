@@ -18,7 +18,6 @@ export const PostList = () => {
         url: 'https://Asaedry.github.io/RedditViewer/sad-face.gif'
     }])
 
-
     useEffect(() => {
         if(posts){
             setPostList(posts.slice(0, 9))

@@ -5,6 +5,7 @@ export const Search = (props) => {
 
     const [search, setSearch] = useState('')
 
+
     const handleSubmit =(e) =>{
         e.preventDefault();
         const lower = search.toLowerCase();

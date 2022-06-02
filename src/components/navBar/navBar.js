@@ -13,8 +13,9 @@ export const NavBar = () => {
     const location = useLocation();
 
     useEffect(() => {
-        history.push('');
-        history.replace('/RedditViewer/#' + location.hash.slice(1));
+        if(location.hash === ''){
+            history.replace('/RedditViewer/#/')
+        }
     }, [])
 
     useEffect(() => {

@@ -1,18 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { useHistory } from "react-router-dom";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+
+
 
 
 export const searchSlice = createSlice({
     name: 'search',
     initialState: {
-        search: '/hot',
+        search: null
     },
     reducers: {
         setQuery: (state, action) => {
             state.search = action.payload;
         }
-    }
-
+    },
 });
 
 export const selectSearch = (state) => state.query.search;
